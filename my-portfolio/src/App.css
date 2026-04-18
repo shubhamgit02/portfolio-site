@@ -36,10 +36,30 @@ body {
 }
 
 .navbar li {
-  cursor: pointer;
   font-weight: bold;
 }
 
+/* NEW: nav buttons */
+.navbar ul li button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li button:hover {
+  color: #61dafb; /* hover highlight */
+}
+
+.navbar ul li button.active {
+  font-weight: bold;
+  border-bottom: 2px solid #61dafb; /* active underline */
+}
+
+/* Dark/Light toggle button */
 button {
   padding: 6px 12px;
   border: none;
