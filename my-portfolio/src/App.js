@@ -4,9 +4,10 @@ import "./App.css";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [text, setText] = useState("");
-  const [activeSection, setActiveSection] = useState("home"); // NEW state
+  const [activeSection, setActiveSection] = useState("home");
   const fullText = "$ student to engineer |";
 
+  // Typing effect
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -17,30 +18,89 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Sync URL hash with activeSection
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setActiveSection(hash);
+      } else {
+        setActiveSection("home");
+      }
+    };
+    handleHashChange(); // run on load
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
   return (
     <div className={darkMode ? "App dark" : "App light"}>
       <header className="navbar">
         <nav>
           <ul>
             <li>
-              <button onClick={() => setActiveSection("home")}>HOME</button>
+              <button
+                onClick={() => {
+                  setActiveSection("home");
+                  window.location.hash = "home";
+                }}
+                className={activeSection === "home" ? "active" : ""}
+              >
+                HOME
+              </button>
             </li>
             <li>
-              <button onClick={() => setActiveSection("about")}>ABOUT</button>
+              <button
+                onClick={() => {
+                  setActiveSection("about");
+                  window.location.hash = "about";
+                }}
+                className={activeSection === "about" ? "active" : ""}
+              >
+                ABOUT
+              </button>
             </li>
             <li>
-              <button onClick={() => setActiveSection("skills")}>SKILLS</button>
+              <button
+                onClick={() => {
+                  setActiveSection("skills");
+                  window.location.hash = "skills";
+                }}
+                className={activeSection === "skills" ? "active" : ""}
+              >
+                SKILLS
+              </button>
             </li>
             <li>
-              <button onClick={() => setActiveSection("certs")}>CERTS</button>
+              <button
+                onClick={() => {
+                  setActiveSection("certs");
+                  window.location.hash = "certs";
+                }}
+                className={activeSection === "certs" ? "active" : ""}
+              >
+                CERTS
+              </button>
             </li>
             <li>
-              <button onClick={() => setActiveSection("projects")}>
+              <button
+                onClick={() => {
+                  setActiveSection("projects");
+                  window.location.hash = "projects";
+                }}
+                className={activeSection === "projects" ? "active" : ""}
+              >
                 PROJECTS
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveSection("contact")}>
+              <button
+                onClick={() => {
+                  setActiveSection("contact");
+                  window.location.hash = "contact";
+                }}
+                className={activeSection === "contact" ? "active" : ""}
+              >
                 CONTACT
               </button>
             </li>
@@ -78,14 +138,14 @@ function App() {
           <section id="about">
             <h2>About Me</h2>
             <p>
-              I'm Shubham Yadav, a Computer Science student passionate about
+              "I'm Shubham Yadav, a Computer Science student passionate about
               building projects that matter. I believe in taking initiative —
               experimenting with ideas, creating solutions, and making
               contributions that create an impact and can bring change. Along
               the way, I value collaboration as a way to strengthen creativity
               and broaden perspectives. My focus is on doing, learning, and
               delivering projects that go beyond code to inspire meaningful
-              outcomes.
+              outcomes."
             </p>
           </section>
         )}
@@ -93,8 +153,121 @@ function App() {
         {activeSection === "skills" && (
           <section id="skills">
             <h2>💻 Tech Stack</h2>
-            {/* keep your badges exactly as before */}
-            {/* Languages, Frontend, Backend, Databases, Tools & DevOps */}
+            <h3>🧠 Languages</h3>
+            <div className="badges">
+              <img
+                src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"
+                alt="JavaScript"
+              />
+              <img
+                src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black"
+                alt="C"
+              />
+              <img
+                src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"
+                alt="Java"
+              />
+              <img
+                src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"
+                alt="Python"
+              />
+            </div>
+
+            <h3>🌐 Frontend</h3>
+            <div className="badges">
+              <img
+                src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
+                alt="React"
+              />
+              <img
+                src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
+                alt="HTML5"
+              />
+              <img
+                src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
+                alt="CSS3"
+              />
+              <img
+                src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"
+                alt="TailwindCSS"
+              />
+              <img
+                src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"
+                alt="Bootstrap"
+              />
+            </div>
+
+            <h3>⚙️ Backend</h3>
+            <div className="badges">
+              <img
+                src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"
+                alt="Django"
+              />
+              <img
+                src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"
+                alt="Flask"
+              />
+              <img
+                src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white"
+                alt="NodeJS"
+              />
+              <img
+                src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"
+                alt="ExpressJS"
+              />
+              <img
+                src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white"
+                alt="JWT"
+              />
+            </div>
+
+            <h3>🗄️ Databases</h3>
+            <div className="badges">
+              <img
+                src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"
+                alt="MySQL"
+              />
+              <img
+                src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"
+                alt="MongoDB"
+              />
+              <img
+                src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"
+                alt="PostgreSQL"
+              />
+            </div>
+
+            <h3>🛠️ Tools & DevOps</h3>
+            <div className="badges">
+              <img
+                src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"
+                alt="Git"
+              />
+              <img
+                src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+                alt="GitHub"
+              />
+              <img
+                src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"
+                alt="Postman"
+              />
+              <img
+                src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"
+                alt="Docker"
+              />
+              <img
+                src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"
+                alt="Vercel"
+              />
+              <img
+                src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"
+                alt="Render"
+              />
+              <img
+                src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"
+                alt="Linux"
+              />
+            </div>
           </section>
         )}
 
@@ -103,7 +276,8 @@ function App() {
             <h2>Certifications</h2>
             <ul>
               <li>Azure Fundamentals</li>
-              <li>Other certs you want to list…</li>
+              <li>Python FullStack Development Course</li>
+              <li>Object Oriented Programming with Java</li>
             </ul>
           </section>
         )}
