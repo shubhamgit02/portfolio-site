@@ -71,13 +71,6 @@ button {
   font-weight: bold;
 }
 
-.resume {
-  display: block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: inherit;
-}
-
 /* Terminal panel */
 .terminal {
   background: #000;
@@ -87,4 +80,8 @@ button {
   max-width: 600px;
   border-radius: 8px;
   font-family: "Courier New", monospace;
+}
+
+.badges img {
+  height: 40px;
 }
