@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  transition: background 1s ease, color 1s ease;
+  padding: 20px;
+}
+
+/* Light mode */
+.App.light {
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+  color: #222;
+}
+
+/* Dark mode */
+.App.dark {
+  background: linear-gradient(120deg, #141414, #1f1f1f);
+  color: #fdfdfd;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+
+.navbar li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Intro section */
+.intro {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+}
+
+.buttons {
+  margin: 20px 0;
+}
+
+.buttons a {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background: gold;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.resume {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Terminal panel */
+.terminal {
+  background: #000;
+  color: #0f0;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+}
