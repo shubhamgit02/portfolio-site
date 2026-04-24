@@ -8,13 +8,27 @@ function App() {
   const fullText = "$ student to engineer |";
 
   // Typing effect
+
   useEffect(() => {
     let index = 0;
+    let isDeleting = false;
+
     const interval = setInterval(() => {
-      setText(fullText.slice(0, index));
-      index++;
-      if (index > fullText.length) clearInterval(interval);
-    }, 150);
+      if (!isDeleting && index <= fullText.length) {
+        setText(fullText.slice(0, index));
+        index++;
+      } else if (isDeleting && index >= 0) {
+        setText(fullText.slice(0, index));
+        index--;
+      }
+
+      if (index === fullText.length) {
+        isDeleting = true; // switch to delete mode
+      } else if (index === 0 && isDeleting) {
+        isDeleting = false; // restart typing
+      }
+    }, 100);
+
     return () => clearInterval(interval);
   }, []);
 
