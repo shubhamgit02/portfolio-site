@@ -319,7 +319,7 @@ export default function App() {
         {activeSection === "home" && (
           <div className="fade-in">
             <section className="intro">
-              <div className="tag-comment">// hello_world.js</div>
+              <div className="tag-comment">{"// hello_world.js"}</div>
               <GlitchText>Hi, I'm Shubham</GlitchText>
               <p className="typing-wrap">
                 <span className="prompt-arrow">▶</span>
@@ -388,7 +388,7 @@ export default function App() {
 
         {activeSection === "about" && (
           <section id="about" className="fade-in content-card">
-            <div className="tag-comment">// about.md</div>
+            <div className="tag-comment">{"// about.md"}</div>
             <h2>About Me</h2>
             <p>
               I'm <strong>Shubham Yadav</strong>, a Computer Science student
@@ -405,7 +405,7 @@ export default function App() {
 
         {activeSection === "skills" && (
           <section id="skills" className="fade-in content-card">
-            <div className="tag-comment">// tech_stack.json</div>
+            <div className="tag-comment">{"// tech_stack.json"}</div>
             <h2>💻 Tech Stack</h2>
             {[
               {
@@ -540,7 +540,7 @@ export default function App() {
 
         {activeSection === "certs" && (
           <section id="certs" className="fade-in content-card">
-            <div className="tag-comment">// certifications.txt</div>
+            <div className="tag-comment">{"// certifications.txt"}</div>
             <h2>Certifications</h2>
             <ul className="cert-list">
               <li>
@@ -560,7 +560,7 @@ export default function App() {
 
         {activeSection === "projects" && (
           <section id="projects" className="fade-in content-card">
-            <div className="tag-comment">// projects/</div>
+            <div className="tag-comment">{"// projects/"}</div>
             <h2>Projects</h2>
             <div className="project-grid">
               {[
@@ -589,7 +589,7 @@ export default function App() {
                   <div className="project-icon">{p.icon}</div>
                   <h3>{p.name}</h3>
                   <p>{p.desc}</p>
-                  <span className="project-tag">// view project</span>
+                  <span className="project-tag">{"// view project"}</span>
                 </div>
               ))}
             </div>
@@ -598,7 +598,7 @@ export default function App() {
 
         {activeSection === "contact" && (
           <section id="contact" className="fade-in content-card">
-            <div className="tag-comment">// contact.json</div>
+            <div className="tag-comment">{"// contact.json"}</div>
             <h2>Contact</h2>
             <div className="contact-list">
               <div className="contact-item">
